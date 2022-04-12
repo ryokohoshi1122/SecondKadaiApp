@@ -8,12 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var textField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
 
-
+    // ResultViewController へ渡したい値の代入
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNext" {
+            let resultView = segue.destination as! ResultViewController
+            resultView.str = textField.text!
+        }
+    }
+    
+    @IBAction func toNextButtonAction(_ sender: Any) {
+    }
+  
+   
 }
 
